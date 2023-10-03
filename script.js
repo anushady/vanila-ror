@@ -3,10 +3,44 @@ const canvas = document.querySelector("canvas.webgl");
 
 // Scene
 const scene = new THREE.Scene();
-let gui2 = new dat.GUI();
+// let gui2 = new dat.GUI();
 // GLTF Loader
+const manager = new THREE.LoadingManager();
+manager.onStart = function (url, itemsLoaded, itemsTotal) {
+  console.log(
+    "Started loading file: " +
+      url +
+      ".\nLoaded " +
+      itemsLoaded +
+      " of " +
+      itemsTotal +
+      " files."
+  );
+};
 
-var loader = new THREE.GLTFLoader();
+manager.onLoad = function () {
+  console.log("Loading complete!");
+  var loader = document.querySelector(".loader");
+  loader.style.display = "none";
+};
+
+manager.onProgress = function (url, itemsLoaded, itemsTotal) {
+  console.log(
+    "Loading file: " +
+      url +
+      ".\nLoaded " +
+      itemsLoaded +
+      " of " +
+      itemsTotal +
+      " files."
+  );
+};
+
+manager.onError = function (url) {
+  console.log("There was an error loading " + url);
+};
+
+var loader = new THREE.GLTFLoader(manager);
 var obj;
 loader.load(
   // resource URL
@@ -21,19 +55,19 @@ loader.load(
 
     gsap.registerPlugin(ScrollTrigger);
 
-    let foldermod2 = gui2.addFolder("position");
+    // let foldermod2 = gui2.addFolder("position");
 
-    foldermod2.add(obj.position, "x", -5, 5, 0.2).name("X");
-    foldermod2.add(obj.position, "y", -5, 5, 0.2).name("Y");
-    foldermod2.add(obj.position, "z", -5, 5, 0.2).name("Z");
-    foldermod2.open();
+    // foldermod2.add(obj.position, "x", -5, 5, 0.2).name("X");
+    // foldermod2.add(obj.position, "y", -5, 5, 0.2).name("Y");
+    // foldermod2.add(obj.position, "z", -5, 5, 0.2).name("Z");
+    // foldermod2.open();
 
-    let foldermod = gui2.addFolder("Rotation");
+    // let foldermod = gui2.addFolder("Rotation");
 
-    foldermod.add(obj.rotation, "x", -5, 5, 0.2).name("X");
-    foldermod.add(obj.rotation, "y", -5, 5, 0.2).name("Y");
-    foldermod.add(obj.rotation, "z", -5, 5, 0.2).name("Z");
-    foldermod.open();
+    // foldermod.add(obj.rotation, "x", -5, 5, 0.2).name("X");
+    // foldermod.add(obj.rotation, "y", -5, 5, 0.2).name("Y");
+    // foldermod.add(obj.rotation, "z", -5, 5, 0.2).name("Z");
+    // foldermod.open();
 
     var tl = gsap
       .timeline({
@@ -44,7 +78,7 @@ loader.load(
           scrub: 1,
           pin: true,
           pinSpacing: false,
-          markers: true,
+          // markers: true,
         },
       })
       .to(obj.position, { duration: 3, x: 0, y: 0, z: 0 })
