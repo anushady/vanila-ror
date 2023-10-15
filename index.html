@@ -57,9 +57,88 @@
     <section class="banner">
         <img src="assets/banner.jpg" alt="">
     </section>
-    <section class="videoscroll">
-
-    </section>
+    <!-- <section class="sticky--container">
+        <div id="hero-screen--canvas2">
+          <div class="scrubber--container">
+            <div class="gsap-canvas-scrubber w-embed w-script">
+                <canvas id="canvas-animation-wrapper2">
+                <script>
+                  window.addEventListener("DOMContentLoaded", (event) => {
+                    const canvas2 = document.getElementById("canvas-animation-wrapper2");
+                    const context2 = canvas2.getContext("2d");
+                    let heroscreen2 = document.querySelector("#hero-screen--canvas2");
+                    let frameCount = 141;
+                    let currentFrame = (index) =>
+                    `assets/video/ROR_Logo_Final_Trans/ezgif-frame-${(index + 1)
+                    .toString()
+                    .padStart(3, "0")}.jpg`;
+                    // let mql = window.matchMedia("(max-width: 480px)");
+                    // if (mql.matches) {
+                    //   frameCount = 35;
+                    //   currentFrame = (index) =>
+                    //     `https://storage.googleapis.com/unitshomes/mobile%20sequence/unt-mobile_${(index + 1)
+                    //     // `https://www.webdeveloperarif.com/paddlepickle/images/hero/unt-mobile_${(index + 1)
+                    //     .toString()
+                    //     .padStart(5, "0")}.webp`;
+                    // }
+                    const images2 = [];
+                    const sequence2 = {
+                        frame: 0
+                    };
+                    for (let i = 0; i < frameCount; i++) {
+                        const img = new Image();
+                        img.src = currentFrame(i);
+                        images2.push(img);
+                    }
+                    
+                        function render() {
+                          canvas2.width = heroscreen2.clientWidth;
+                          canvas2.height = heroscreen2.clientHeight; 
+                          context2.clearRect(0, 0, canvas2.width, canvas2.height);
+                          const iw     = images2[sequence2.frame].width;
+                          const ih     = images2[sequence2.frame].height;
+                          const cw     = canvas2.width;
+                          const ch     = canvas2.height;
+                          const f      = Math.max(cw/iw, ch/ih);
+                          context2.setTransform(
+                            /*     scale x */ f,
+                            /*      skew x */ 0,
+                            /*      skew y */ 0,
+                            /*     scale y */ f,
+                            /* translate x */ (cw - f * iw) / 2,
+                            /* translate y */ (ch - f * ih) / 2,
+                          );
+                          context2.drawImage(images2[sequence2.frame], 0, 0);
+                        }
+                        gsap.to(sequence2, {
+                          frame: frameCount - 1,
+                          snap: "frame",
+                          ease: "power1.out",
+                          scrollTrigger: {
+                            trigger: "#canvas-animation-wrapper2",
+                            start: "top top",
+                            end: "+=2000",
+                            scrub: 1,
+                          },
+                          onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
+                        });
+                        images2[0].onload = render;
+                        // resize the canvas to fill browser window dynamically\
+                        window.addEventListener('resize', resizeCanvas, false);  
+                        function resizeCanvas() {
+                          canvas2.width = heroscreen2.clientWidth;
+                          canvas2.height = heroscreen2.clientHeight;                    
+                          render();
+                        }
+                        resizeCanvas();
+                      });
+                </script>
+              </canvas>
+            </div>
+          </div>
+        </div>
+        <div class="sticky--spacer"></div>
+      </section> -->
     <section class="banner2">
         <img src="assets/banner.jpg" alt="">
     </section>
@@ -120,21 +199,38 @@
         </div>
     </section>
     <footer>
-        <div>
-            <div>
-                <img src="logo.png" alt="">
-            </div>
-            <div>
-                <h3>LOREM</h3>
-                <p>lorem</p>    
-                <p>lorem</p>    
-                <p>lorem</p>    
-            </div>
-            <div>
-                <h3>LOREM</h3>
-                <p>lorem</p>    
-                <p>lorem</p>    
-                <p>lorem</p>    
+        <div class="footer1">
+            <p>NEXT</p>
+            <h1>Submariner features</h1>
+            <span>Learn more</span>
+        </div>
+        <div class="footer2">
+            <div class="foot2_cont">
+                <div>
+                    <p class="footlogo">LOGO</p>
+                </div>
+                <div class="footmenus">
+                    <h3>SHOP</h3>
+                    <p>Shisha</p>    
+                    <p>Non tobacco</p>    
+                    <p>Dark tobacco</p>    
+                    <p>Hookah</p>    
+                    <p>Accessories</p>    
+                </div>
+                <div class="footmenus">
+                    <h3>CONTACT US</h3>
+                    <p>Mail Id - info@rortobacco.com</p>    
+                    <p>Address - 2105 S Hardy <br> Dr Suite # 9 <br>
+                        Tempe AZ 85282 <br>
+                        USA
+                    </p>    
+                </div>
+                <div class="footmenus">
+                    <h3>Terms and Conditions</h3>
+                    <p>Privacy Policy</p>    
+                    <p>Legal</p>    
+                    <p>lorem ipsum</p>    
+                </div>
             </div>
         </div>
     </footer>
