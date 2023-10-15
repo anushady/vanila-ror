@@ -168,7 +168,7 @@ header {
 
 .products {
   position: relative;
-  padding: 150px 0 100px 0;
+  padding: 120px 0 100px 0;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -185,8 +185,9 @@ header {
 }
 .products_cont h1 {
   color: rgb(12, 12, 12);
-  font-size: 80px;
-  font-weight: 400;
+  font-size: 100px;
+  font-weight: 200;
+  margin-bottom: 20px;
 }
 .pro {
   display: flex;
@@ -267,7 +268,7 @@ header {
   align-items: center;
   padding: 100px 0 0 0;
   background: radial-gradient(circle, rgb(103, 113, 113) 0%, rgb(50, 53, 53) 42%, rgba(24,24,24,1) 100%);
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 .about_cont {
   width: 80%;
@@ -410,7 +411,39 @@ span {
   font-size: 20px;
 }
 
+/* scroller */
+/* scroller */
+/* scroller */
 
+.sticky--container {
+  position: relative;
+}
+
+#hero-screen--canvas,
+#hero-screen--canvas2 {
+  z-index: 1;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  max-width: 100vw;
+  min-height: 100vh;
+  justify-content: center;
+  display: flex;
+}
+
+.scrubber--container {
+  z-index: -1;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+}
+
+.sticky--spacer {
+  display: block !important;
+  height: 200vh;
+}
 
 
 
