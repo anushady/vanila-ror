@@ -66,6 +66,10 @@ header {
     justify-content: center;
     gap: 40px;
   }
+  .icons a {
+    text-decoration: none;
+    color: rgb(249, 249, 249);
+  }
   .icons > svg {
     cursor: pointer;
     width: 20px;
@@ -98,6 +102,27 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+  .top {
+    width: 25px;
+    height: 25x;
+    fill: white;
+  }
+  .socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+.socials a {
+  text-decoration: none;
+  color: white;
+}
+  .socials svg {
+    width: 25px;
+    height: 25px;
+    fill: white;
+    cursor: pointer;
   }
   .sub_button {
     cursor: pointer;
