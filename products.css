@@ -194,6 +194,7 @@ color: white;
 .list {
     background-color: rgb(241, 241, 241);
     padding: 40px;
+    width: 22vw;
     height: 300px;
     border-radius: 12px;
     display: flex;
