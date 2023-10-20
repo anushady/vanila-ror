@@ -518,7 +518,7 @@ footer span {
 /* responsive with media query */
 
 /* add media query for max height of 500px */
-@media only screen and (min-height: 500px) {
+@media only screen and (max-height: 500px) {
   .header_cont {
     width: 95%
   }
