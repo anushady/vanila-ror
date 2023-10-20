@@ -345,11 +345,11 @@ color: white;
 .video3 {
   position: relative;
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
 }
 .video3 video {
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   object-fit: cover;
 }
 
