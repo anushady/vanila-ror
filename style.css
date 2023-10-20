@@ -165,7 +165,7 @@ color: white;
   position: relative;
   width: 100%;
   height: auto;
-  padding: 200px 0 0 0;
+  /* padding: 200px 0 0 0; */
   background: rgb(0,0,0);
 }
 .banner img {
