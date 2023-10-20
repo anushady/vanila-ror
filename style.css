@@ -204,6 +204,19 @@ color: white;
   -webkit-text-stroke: 2px #d06100;
   -webkit-text-fill-color: transparent;
   line-height: 1;
+  animation: blink-animation 0.5s steps(5, start) infinite;
+  -webkit-animation: blink-animation 0.5s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
 }
 .videoscroll {
   position: relative;
@@ -287,6 +300,13 @@ color: white;
 .text_p span {
   color: #ffe46c;
 }
+.gsapwrap {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 80px;
+  height: 400vh;
+}
 .imagea {
   width: 55%;
   height: auto;
@@ -294,10 +314,11 @@ color: white;
 .info {
   display: flex;
   flex-direction: column;
-  align-self: center;
+  align-items: start;
   justify-content: center;
-  margin-top: -100px;
+  /* margin-top: -100px; */
   width: 55%;
+  height: 100vh;
 }
 .info h1 {
   font-size: 60px;

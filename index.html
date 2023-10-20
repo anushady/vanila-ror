@@ -224,16 +224,16 @@
         <div class="products_cont">
             <h1>PRODUCTS</h1>
             <div class="pro">
-                <div>
+                <div class="pro1 proa">
                     <img src="assets/Hme_BLU_Pl.png" alt="">
                 </div>
-                <div>
+                <div class="pro2 proa">
                     <img src="assets/Hme_FRZ_Pl.png" alt="">
                 </div>
-                <div>
+                <div class="pro3 proa">
                     <img src="assets/Hme_SCK_Pl.png" alt="">
                 </div>
-                <div>
+                <div class="pro4 proa">
                     <img src="assets/Hme_STW_Pl.png" alt="">
                 </div>
             </div>
@@ -244,10 +244,12 @@
                 <div class="newflav">
                     <h2>NEW FLAVOR ALERT!</h2>
                 </div>
-                <img class="imagea" src="assets/Hme_TRP_Pl.png" alt="">
-                <div class="info">
-                    <h1>Tropical Peach</h1>
-                    <p>Escape to an exotic world where the sun kisses the horizon and the breeze carries the scent of ripe, juicy peaches. Welcome to a hookah experience like no other, where each puff transports you to a tropical paradise.</p>
+                <div class="gsapwrap">
+                    <img class="imagea" src="assets/Hme_TRP_Pl.png" alt="">
+                    <div class="info">
+                        <h1>Tropical Peach</h1>
+                        <p>Escape to an exotic world where the sun kisses the horizon and the breeze carries the scent of ripe, juicy peaches. Welcome to a hookah experience like no other, where each puff transports you to a tropical paradise.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -318,9 +320,7 @@
                 </div>
                 <div class="footmenus">
                     <h3>Terms and Conditions</h3>
-                    <p>Privacy Policy</p>    
-                    <p>Legal</p>    
-                    <p>lorem ipsum</p>    
+                    <p>Privacy Policy</p> 
                 </div>
             </div>
         </div>
@@ -329,6 +329,75 @@
     <script src="three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".pro",
+                start: "top center",
+                end: "bottom bottom",
+                toggleActions: "restart none none none"
+            }
+        });
+        tl.from(".pro1", {
+            y: 50,
+            opacity: 0,
+            duration: 0.4,
+            // ease: "power4.out"
+        })
+        .from(".pro2", {
+            y: 50,
+            opacity: 0,
+            duration: 0.4,
+            // ease: "power4.out"
+        })
+        .from(".pro3", {
+            y: 50,
+            opacity: 0,
+            duration: 0.4,
+            // ease: "power4.out"
+        })
+        .from(".pro4", {
+            y: 50,
+            opacity: 0,
+            duration: 0.4,
+            // ease: "power4.out"
+        })
+
+        let tl2 = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".gsapwrap",
+                start: "top top",
+                end: "bottom bottom",
+                toggleActions: "restart none none none",
+                scrub: true,
+                pin: true,
+                pinSpacing: false,
+                markers: true
+            }
+        });
+        tl2.from(".imagea", {
+            // y: 50,
+            
+            opacity: 0,
+            duration: 10,
+            scale: 0.2,
+            // ease: "power4.out"
+        })
+        .from(".imagea", {
+            // y: 50,
+            x:'50%',
+            duration: 10,
+            // ease: "power4.out"
+        })
+        .from(".info", {
+            // y: 50,
+            x:'200px',
+            opacity: 0,
+            duration: 5,
+            // ease: "power4.out"
+        })
+    </script>
     <script src="GLTFLoader.js"></script>
     <script src="RGBELoader.js"></script>
     <!-- //add dat.gui from a cdn-->
