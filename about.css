@@ -183,8 +183,10 @@ color: white;
   .abouthero video {
     z-index: 0;
     width: 100%;
+    height: 100%;
     position: absolute;
     left: 0;
+    object-fit: cover;
   }
 
   /* section2 */
@@ -317,7 +319,7 @@ color: white;
       line-height: 1.5;
   }
   .sect3_cont h3 span {
-      color: #590000;
+      color: #990000;
   }
 
     /* section4 video */
