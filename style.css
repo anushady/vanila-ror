@@ -252,7 +252,10 @@ color: white;
   text-align: left;
   width: 55%;
   line-height: 1.4;
-  color: rgb(207, 207, 207);
+  color: rgb(242, 242, 242);
+}
+.text_p span {
+  color: #ffe46c;
 }
 .imagea {
   width: 55%;
@@ -412,7 +415,7 @@ footer {
   font-size: 90px;
   font-weight: 400;
 }
-span {
+footer span {
   font-size: 20px;
   font-weight: 400;
   padding: 20px 50px;
