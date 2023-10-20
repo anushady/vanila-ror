@@ -171,10 +171,12 @@ color: white;
   height: auto;
   /* padding: 200px 0 0 0; */
   background: rgb(0,0,0);
+  margin-top: -5px;
 }
 .banner img {
   width: 100%;
-  height: auto;
+  /* height: auto; */
+
 }
 .videoscroll {
   position: relative;
