@@ -7,8 +7,8 @@
     <title>ROR</title>
     <link type="text/css" rel="stylesheet" href="style.css">
 </head>
-<script>
-    window.addEventListener("DOMContentLoaded", (event) => {
+    <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
       const canvas2 = document.getElementById("canvas-animation-wrapper2");
       const context2 = canvas2.getContext("2d");
       let heroscreen2 = document.querySelector("#hero-screen--canvas2");
@@ -77,79 +77,150 @@
           }
           resizeCanvas();
         });
+    </script>
+    <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
+        const canvas = document.getElementById("canvas-animation-wrapper");
+        const context = canvas.getContext("2d");
+        let heroscreen = document.querySelector("#hero-screen--canvas");
+        let frameCount = 195;
+        let currentFrame = (index) =>
+        // `https://storage.googleapis.com/unitshomes/desktopsequence/unt-dsktp_${(index + 1)
+        `assets/video/ROR_Web_Vid_Comp_ex/ezgif-frame-${(index + 1)
+        .toString()
+        .padStart(3, "0")}.jpg`;
+        // let mql = window.matchMedia("(max-width: 480px)");
+        // if (mql.matches) {
+        //   frameCount = 35;
+        //   currentFrame = (index) =>
+        //     `https://storage.googleapis.com/unitshomes/mobile%20sequence/unt-mobile_${(index + 1)
+        //     // `https://www.webdeveloperarif.com/paddlepickle/images/hero/unt-mobile_${(index + 1)
+        //     .toString()
+        //     .padStart(5, "0")}.webp`;
+        // }
+        const images = [];
+        const sequence = {
+            frame: 0
+        };
+        for (let i = 0; i < frameCount; i++) {
+            const img = new Image();
+            img.src = currentFrame(i);
+            images.push(img);
+        }
+        
+            function render() {
+              canvas.width = heroscreen.clientWidth;
+              canvas.height = heroscreen.clientHeight; 
+              context.clearRect(0, 0, canvas.width, canvas.height);
+              const iw     = images[sequence.frame].width;
+              const ih     = images[sequence.frame].height;
+              const cw     = canvas.width;
+              const ch     = canvas.height;
+              const f      = Math.max(cw/iw, ch/ih);
+              context.setTransform(
+                /*     scale x */ f,
+                /*      skew x */ 0,
+                /*      skew y */ 0,
+                /*     scale y */ f,
+                /* translate x */ (cw - f * iw) / 2,
+                /* translate y */ (ch - f * ih) / 2,
+              );
+              context.drawImage(images[sequence.frame], 0, 0);
+            }
+            gsap.to(sequence, {
+              frame: frameCount - 1,
+              snap: "frame",
+              ease: "power1.out",
+              scrollTrigger: {
+                trigger: "#canvas-animation-wrapper",
+                start: "top top",
+                end: "+=2000",
+                scrub: 1,
+              },
+              onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
+            });
+            images[0].onload = render;
+            // resize the canvas to fill browser window dynamically\
+            window.addEventListener('resize', resizeCanvas, false);  
+            function resizeCanvas() {
+              canvas.width = heroscreen.clientWidth;
+              canvas.height = heroscreen.clientHeight;                    
+              render();
+            }
+            resizeCanvas();
+          });
+    </script>
+    <script>
+      window.addEventListener("DOMContentLoaded", (event) => {
+      const canvas3 = document.getElementById("canvas-animation-wrapper3");
+      const context3 = canvas3.getContext("2d");
+      let heroscreen3 = document.querySelector("#hero-screen--canvas3");
+      let frameCount = 50;
+      let currentFrame = (index) =>
+      `assets/video/explodes/ezgif-frame-${(index + 1)
+      .toString()
+      .padStart(3, "0")}.jpg`;
+      // let mql = window.matchMedia("(max-width: 480px)");
+      // if (mql.matches) {
+      //   frameCount = 35;
+      //   currentFrame = (index) =>
+      //     `https://storage.googleapis.com/unitshomes/mobile%20sequence/unt-mobile_${(index + 1)
+      //     // `https://www.webdeveloperarif.com/paddlepickle/images/hero/unt-mobile_${(index + 1)
+      //     .toString()
+      //     .padStart(5, "0")}.webp`;
+      // }
+      const images3 = [];
+      const sequence3 = {
+          frame: 0
+      };
+      for (let i = 0; i < frameCount; i++) {
+          const img = new Image();
+          img.src = currentFrame(i);
+          images3.push(img);
+      }
+      
+          function render() {
+            canvas3.width = heroscreen3.clientWidth;
+            canvas3.height = heroscreen3.clientHeight; 
+            context3.clearRect(0, 0, canvas3.width, canvas3.height);
+            const iw     = images3[sequence3.frame].width;
+            const ih     = images3[sequence3.frame].height;
+            const cw     = canvas3.width;
+            const ch     = canvas3.height;
+            const f      = Math.max(cw/iw, ch/ih);
+            context3.setTransform(
+              /*     scale x */ f,
+              /*      skew x */ 0,
+              /*      skew y */ 0,
+              /*     scale y */ f,
+              /* translate x */ (cw - f * iw) / 2,
+              /* translate y */ (ch - f * ih) / 2,
+            );
+            context3.drawImage(images3[sequence3.frame], 0, 0);
+          }
+          gsap.to(sequence3, {
+            frame: frameCount - 1,
+            snap: "frame",
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: "#canvas-animation-wrapper3",
+              start: "top top",
+              end: "+=2000",
+              scrub: true,
+            },
+            onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
+          });
+          images3[0].onload = render;
+          // resize the canvas to fill browser window dynamically\
+          window.addEventListener('resize', resizeCanvas, false);  
+          function resizeCanvas() {
+            canvas3.width = heroscreen3.clientWidth;
+            canvas3.height = heroscreen3.clientHeight;                    
+            render();
+          }
+          resizeCanvas();
+        });
   </script>
-              <script>
-                window.addEventListener("DOMContentLoaded", (event) => {
-                  const canvas = document.getElementById("canvas-animation-wrapper");
-                  const context = canvas.getContext("2d");
-                  let heroscreen = document.querySelector("#hero-screen--canvas");
-                  let frameCount = 195;
-                  let currentFrame = (index) =>
-                  // `https://storage.googleapis.com/unitshomes/desktopsequence/unt-dsktp_${(index + 1)
-                  `assets/video/ROR_Web_Vid_Comp_ex/ezgif-frame-${(index + 1)
-                  .toString()
-                  .padStart(3, "0")}.jpg`;
-                  // let mql = window.matchMedia("(max-width: 480px)");
-                  // if (mql.matches) {
-                  //   frameCount = 35;
-                  //   currentFrame = (index) =>
-                  //     `https://storage.googleapis.com/unitshomes/mobile%20sequence/unt-mobile_${(index + 1)
-                  //     // `https://www.webdeveloperarif.com/paddlepickle/images/hero/unt-mobile_${(index + 1)
-                  //     .toString()
-                  //     .padStart(5, "0")}.webp`;
-                  // }
-                  const images = [];
-                  const sequence = {
-                      frame: 0
-                  };
-                  for (let i = 0; i < frameCount; i++) {
-                      const img = new Image();
-                      img.src = currentFrame(i);
-                      images.push(img);
-                  }
-                  
-                      function render() {
-                        canvas.width = heroscreen.clientWidth;
-                        canvas.height = heroscreen.clientHeight; 
-                        context.clearRect(0, 0, canvas.width, canvas.height);
-                        const iw     = images[sequence.frame].width;
-                        const ih     = images[sequence.frame].height;
-                        const cw     = canvas.width;
-                        const ch     = canvas.height;
-                        const f      = Math.max(cw/iw, ch/ih);
-                        context.setTransform(
-                          /*     scale x */ f,
-                          /*      skew x */ 0,
-                          /*      skew y */ 0,
-                          /*     scale y */ f,
-                          /* translate x */ (cw - f * iw) / 2,
-                          /* translate y */ (ch - f * ih) / 2,
-                        );
-                        context.drawImage(images[sequence.frame], 0, 0);
-                      }
-                      gsap.to(sequence, {
-                        frame: frameCount - 1,
-                        snap: "frame",
-                        ease: "power1.out",
-                        scrollTrigger: {
-                          trigger: "#canvas-animation-wrapper",
-                          start: "top top",
-                          end: "+=2000",
-                          scrub: 1,
-                        },
-                        onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
-                      });
-                      images[0].onload = render;
-                      // resize the canvas to fill browser window dynamically\
-                      window.addEventListener('resize', resizeCanvas, false);  
-                      function resizeCanvas() {
-                        canvas.width = heroscreen.clientWidth;
-                        canvas.height = heroscreen.clientHeight;                    
-                        render();
-                      }
-                      resizeCanvas();
-                    });
-              </script>
 <body>
     <!-- <canvas class="webgl"></canvas> -->
     <header>
@@ -265,16 +336,31 @@
                 <div class="newflav">
                     <!-- <h2>NEW FLAVOR ALERT!</h2> -->
                 </div>
-                <div class="gsapwrap">
-                    <img class="imagea" src="assets/Hme_TRP_Pl.png" alt="">
-                    <div class="info">
-                        <h1>Tropical Peach</h1>
-                        <p>Escape to an exotic world where the sun kisses the horizon and the breeze carries the scent of ripe, juicy peaches. Welcome to a hookah experience like no other, where each puff transports you to a tropical paradise.</p>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </section>
+    <section class="sticky--container">
+        <div id="hero-screen--canvas3">
+            <div class="scrubber--container">
+                <div class="gsap-canvas-scrubber w-embed w-script">
+                    <canvas id="canvas-animation-wrapper3">
+
+          </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="sticky--spacer"></div>
+    </section>
+    <div class="gsapwrap">
+        <div class="wrap_cont">
+            <img class="imagea" src="assets/Hme_TRP_Pl.png" alt="">
+            <div class="info">
+                <h1>Tropical Peach</h1>
+                <p>Escape to an exotic world where the sun kisses the horizon and the breeze carries the scent of ripe, juicy peaches. Welcome to a hookah experience like no other, where each puff transports you to a tropical paradise.</p>
+            </div>
+        </div>
+    </div>
     <section class="sticky--container">
         <div id="hero-screen--canvas2">
             <div class="scrubber--container">
@@ -454,39 +540,39 @@
             // ease: "power4.out"
         })
 
-        let tl2 = gsap.timeline({
-            scrollTrigger: {
-                trigger: ".gsapwrap",
-                start: "top top",
-                end: "bottom bottom",
-                toggleActions: "restart none none none",
-                scrub: true,
-                pin: true,
-                pinSpacing: false,
-                // markers: true
-            }
-        });
-        tl2.from(".imagea", {
-            // y: 50,
+        // let tl2 = gsap.timeline({
+        //     scrollTrigger: {
+        //         trigger: ".gsapwrap",
+        //         start: "top top",
+        //         end: "bottom bottom",
+        //         toggleActions: "restart none none none",
+        //         scrub: true,
+        //         pin: true,
+        //         pinSpacing: false,
+        //         // markers: true
+        //     }
+        // });
+        // tl2.from(".imagea", {
+        //     // y: 50,
             
-            opacity: 0,
-            duration: 10,
-            scale: 0.2,
-            // ease: "power4.out"
-        })
-        .from(".imagea", {
-            // y: 50,
-            x:'50%',
-            duration: 10,
-            // ease: "power4.out"
-        })
-        .from(".info", {
-            // y: 50,
-            x:'200px',
-            opacity: 0,
-            duration: 5,
-            // ease: "power4.out"
-        })
+        //     opacity: 0,
+        //     duration: 10,
+        //     scale: 0.2,
+        //     // ease: "power4.out"
+        // })
+        // .from(".imagea", {
+        //     // y: 50,
+        //     x:'50%',
+        //     duration: 10,
+        //     // ease: "power4.out"
+        // })
+        // .from(".info", {
+        //     // y: 50,
+        //     x:'200px',
+        //     opacity: 0,
+        //     duration: 5,
+        //     // ease: "power4.out"
+        // })
     </script>
     <script src="GLTFLoader.js"></script>
     <script src="RGBELoader.js"></script>
