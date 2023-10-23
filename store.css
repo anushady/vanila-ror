@@ -1,4 +1,29 @@
-#map2 {
+.storecont {
+    position: relative;
     height: 100vh;
-    width: 50%;
+    width: 100%;
+}
+.storenames {
+    position: absolute;
+    top: 160px;
+    left: 0;
+    width: 19.3%;
+    overflow-y: scroll;
+    height: 100vh;
+}
+.storenames div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 300px;
+  
+}
+#map2 {
+    position: absolute;
+    top: 0;
+    right: 0;    
+    height: 100vh;
+    width: 80vw;
 }
