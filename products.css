@@ -233,15 +233,6 @@ color: white;
     margin-top: 160px;
     padding: 70px 0 100px 0;
 }
-.watches_cont_list {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 2fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 10px;
-    place-items: center;
-    margin-top: 20px;
-}
 .watches_cont {
     width: 80%;
     display: flex;
@@ -260,8 +251,8 @@ color: white;
 .watches_cont_list {
     display: grid;
     grid-template-columns: repeat(3, 2fr);
-    grid-template-rows: repeat(2, 1fr);
-    /* gap: 10px; */
+    /* grid-template-rows: repeat(2, 1fr); */
+    gap: 10px;
     place-items: center;
 }
 .list {
@@ -275,6 +266,7 @@ color: white;
     justify-content: space-between;
     cursor: pointer;
 }
+
 .list_img img {
     width: 12vw;
     height: auto;
